@@ -42,7 +42,7 @@ const posts = await getPosts();
 				width: 100%;
 			}
 			ul li:first-child .title {
-				font-size: 2.369rem;
+				font-size: 1.5rem;
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
@@ -79,7 +79,7 @@ const posts = await getPosts();
 					margin-bottom: 0;
 				}
 				ul li:first-child .title {
-					font-size: 1.563em;
+					font-size: 1.125rem;
 				}
 			}
 		</style>
@@ -88,6 +88,8 @@ const posts = await getPosts();
 		<Header />
 		<main>
 			<section>
+				<h1>글</h1>
+				{posts.length === 0 && <p>첫 번째 글을 준비하고 있습니다.</p>}
 				<ul>
 					{posts.map((post) => (
 						<li>

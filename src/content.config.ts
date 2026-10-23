@@ -15,8 +15,6 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
-			// 커리큘럼 단계 번호 (consts.ts의 CURRICULUM)
-			step: z.number().optional(),
 			draft: z.boolean().default(false),
 		}),
 });

@@ -1,8 +1,7 @@
 ---
-title: 토큰화 (Tokenization)
+title: "LLM 1: 토큰화 (Tokenization)"
 description: LLM이 텍스트를 숫자로 바꾸는 첫 단계, 서브워드 토큰화와 BPE
 pubDate: 2026-10-23
-step: 1
 ---
 
 ## 왜 필요할까?

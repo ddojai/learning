@@ -2,72 +2,20 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { CURRICULUM, SITE_DESCRIPTION, SITE_TITLE, url } from '../consts';
-import { getPosts } from '../lib/posts';
-
-const posts = await getPosts();
-const lessons = CURRICULUM.map((lesson) => ({
-	...lesson,
-	post: posts.find((post) => post.data.step === lesson.step),
-}));
+import { SITE_DESCRIPTION, SITE_TITLE, url } from '../consts';
 ---
 
 <!doctype html>
 <html lang="ko">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ol {
-				list-style: none;
-				padding: 0;
-			}
-			li {
-				display: flex;
-				gap: 1em;
-				align-items: baseline;
-				padding: 0.75em 0;
-				border-bottom: 1px solid rgb(var(--gray-light));
-			}
-			.num {
-				min-width: 2em;
-				color: rgb(var(--accent));
-				font-weight: 700;
-			}
-			.question {
-				margin: 0;
-				color: rgb(var(--gray));
-				font-size: 0.9em;
-			}
-			.soon {
-				color: rgb(var(--gray));
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>{SITE_TITLE}</h1>
-			<p>
-				LLM(대규모 언어 모델)은 "지금까지 나온 글을 보고 다음에 올 토큰을 확률적으로 예측하는
-				모델"이다. 이 단순한 일에서 어떻게 번역, 요약, 코딩, 추론 같은 능력이 나오는지 원리부터
-				하나씩 정리한다.
-			</p>
-			<h2>커리큘럼</h2>
-			<ol>
-				{lessons.map(({ step, title, question, post }) => (
-					<li>
-						<span class="num">{step}</span>
-						<div>
-							{post ? (
-								<a href={url(`blog/${post.id}/`)}>{title}</a>
-							) : (
-								<span class="soon">{title} (준비 중)</span>
-							)}
-							<p class="question">{question}</p>
-						</div>
-					</li>
-				))}
-			</ol>
+			<p>{SITE_DESCRIPTION}</p>
+			<p><a href={url('blog/')}>글 보기 →</a></p>
 		</main>
 		<Footer />
 	</body>
